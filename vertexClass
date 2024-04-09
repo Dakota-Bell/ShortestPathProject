@@ -8,4 +8,5 @@ struct Vertex
 	T name; // hold name of the vertex
 	T connection[9]; // hold up to 9 connecting vertexes
 	T weights[9]; // hold up to 9 weights	
+	T* link;
 };
