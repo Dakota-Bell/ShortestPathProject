@@ -1,0 +1,89 @@
+//Implementing a linked list as an array and abstracting to a queue
+
+#include <iostream>
+
+using namespace std;
+
+template <typename T>
+class LinkedQueue:public queueADT<T>{
+private:
+    int count;
+    T *front;
+    T *rear;
+    
+public:
+    const LinkedQueue<T>& operator =(const LinkedQueue<T>&);
+    bool isEmpty();
+    bool isFull();
+    void initialize();
+    T front();
+    T back();
+    void deleteQ();
+    void addQ(const T& element);
+    LinkedQueue(); //constructor
+    LinkedQueue(const Queue<T>& rhsQ); //copy constructor
+    ~LinkedQueue(); //destructor
+};
+template <typename T>
+LinkedQueue::LinkedQueue() //constructor
+{
+    link = nullptr;
+    front = nullptr;
+    back = nullptr;
+    T name = n;
+    T weight = w;
+    T connections = c;
+}
+template <typename T>
+bool LinkedQueue<T>::isEmpty()
+{
+    if (front == nullptr){
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <typename T>
+void LinkedQueue<T>::initialize()
+{
+    deleteQ();
+}
+template <typename T>
+bool LinkedQueue<T>::isFull()
+{
+    return false; //will always return false unless run out of memory
+}
+
+void deleteQ<T>::delete()
+{
+    Vertex<T> *temp;
+    
+    if(!isEmpty())
+    {
+        temp = front;
+        fornt = 
+    }
+}
+template <typename T>
+const LinkedQueue& LinkedQueue:: operator=(const LinkedQueue& rhs)
+{
+    if(this !=&rhs)
+    {
+        copyQ();
+    }
+    return *this;
+}
+
+LinkedQueue::~LinkedQueue() //destructor
+{
+    deleteQ();
+}
+
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
+}
