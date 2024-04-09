@@ -2,59 +2,10 @@
 #include <string>
 using namespace std;
 
-class Vertex
+template <class Type> 
+struct Vertex
 {
-	private:
-		static const int MAX_VALUES = 9; // maximum number of vertexes, edges, and weights you may have
-		string name; // hold name of the vertex
-		int connection[9]; // hold up to 9 connecting vertexes
-		int weights[9]; // hold up to 9 weights
-	public:
-		//---------------------------------------------------------------------------------------- 
-		// readFromFile: This function is basically like a "vertex.getName()" method.
-		//				1. Read in from the file
-		//				2. Store the name of the vertex
-		//				3. Store the connections and weights into their arrays
-		
-		// Incoming Data: N/A
-		
-		// Outgoing Data: N/A
-		
-		// Author: Dakota Bell
-		
-		// Tester: 
-		
-		// Notes: 
-		
-		// --------------------------------------------------------------------------- 
-		void readFromFile(string n, int c[MAX_VALUES], int w[MAX_VALUES])
-		{
-			// check if the file even exists
-			
-			// if the file exists, get the name of the vetrtex
-			
-			
-			// get the connecting vertexes and store into the c array
-			
-			// get the weights of each edge (they must be in order) and store into the w array
-		}
-		
-		//---------------------------------------------------------------------------------------- 
-		// Constructor, initialize the name, and two parallel arrys. You
-		//				do NOT need to include the size of the array in the constructor
-		//				when doing it this way.
-		
-		// Incoming Data: N/A
-		
-		// Outgoing Data: N/A
-		
-		// Author: Dakota Bell
-		
-		// Tester: 
-		
-		// Notes: 
-		
-		// --------------------------------------------------------------------------- 
-		Vertex():name(" "), connection(), weights(){}
-		
+	Type name; // hold name of the vertex
+	Type connection[9]; // hold up to 9 connecting vertexes
+	Type weights[9]; // hold up to 9 weights	
 };
