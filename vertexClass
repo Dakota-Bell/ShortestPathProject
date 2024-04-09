@@ -55,6 +55,6 @@ class Vertex
 		// Notes: 
 		
 		// --------------------------------------------------------------------------- 
-		Vertex():name(" "), connection(0), weights(0){}
+		Vertex():name(" "), connection(), weights(){}
 		
 };
