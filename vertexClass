@@ -1,6 +1,21 @@
 #include <iostream>
-#include <string>
 using namespace std;
+
+//---------------------------------------------------------------------------------------- 
+// Vertex Struct: Holds the name of the vertex, any other vertexes, or canals it's 
+// 		  connected to and their corresponding weight (must be in order to work)
+	
+// Incoming Data: N/A
+
+// Outgoing Data: N/A
+
+// Author: Dakota Bell
+
+// Tester: 
+
+// Notes: 
+	
+// --------------------------------------------------------------------------- 
 
 template <class T> 
 struct Vertex
