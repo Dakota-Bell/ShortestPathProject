@@ -38,10 +38,11 @@ class FileClass
 			}
 			
 			// if the file exists, get the name of the vetrtex
-			for(int i = 0; i < 9; i++)
+			for(int i = 0; i <= MAX_VALUES; i++)
 			{
-				getline(infile, name, ',');
+				getline(infile, name, '.');
 				cout << name;
+				cout << endl;
 			}
 			/*
 			// get the connecting vertexes and store into the c array
