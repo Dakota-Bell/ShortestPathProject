@@ -2,10 +2,10 @@
 #include <string>
 using namespace std;
 
-template <class Type> 
+template <class T> 
 struct Vertex
 {
-	Type name; // hold name of the vertex
-	Type connection[9]; // hold up to 9 connecting vertexes
-	Type weights[9]; // hold up to 9 weights	
+	T name; // hold name of the vertex
+	T connection[9]; // hold up to 9 connecting vertexes
+	T weights[9]; // hold up to 9 weights	
 };
