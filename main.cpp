@@ -20,8 +20,8 @@ int main()
 }
 
   //---------------------------------------------------------------------------------------- 
-	// Menu(): simplify prints out the menu of optional ports to begin at and potential 
-	//				 ending ports
+	// Menu(): simpliy prints out the menu of optional ports to begin at and potential 
+	//	   ending ports
 		
 	// Incoming Data: array of all locations, maximum number of locations
 		
