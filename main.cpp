@@ -15,14 +15,16 @@ int main()
   int MAX = 9;
 	//Vertex myObj;
 	string locationArr[MAX] = {"Panama Canal", "Suez Canal", "Busan, South Korea", "Shanghai, China", "Singapore, Singapore", "Rotterdam, The Netherlands", "Japan", "New York, United States", "Immingham, United Kingdom"};
-	int start, end;
+	int start, end, vertices;
 	menu(locationArr, MAX);
 	
 	cout << "Enter your starting port number: ";
 	cin >> start;
 	cout << "Enter your ending port number: ";
 	cin >> end;
-  
+
+	dijkstra(start, vertices);
+	
   return 0;
 }
 
