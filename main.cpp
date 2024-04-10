@@ -7,7 +7,7 @@ const int INF = 1e9; 	//representing infinity
 void menu(string[], int);
 
 int adjMatrix[MAX_V][MAX_V]; 	// Adjacency matrix for graph weights
-int distance[MAX_V]; 		// Stores shortest distance from source
+int dist[MAX_V]; 		// Stores shortest distance from source
 bool visited[MAX_V]; 		// Keeps track of visited vertices
 
 void dijkstra(int, int);
