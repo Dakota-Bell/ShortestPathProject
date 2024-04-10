@@ -2,7 +2,23 @@
 #include "VertexStruct.cpp"
 #include "Q.h"
 using namespace std;
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 bool linkedQ<T>::isEmpty()
 {
@@ -12,13 +28,45 @@ bool linkedQ<T>::isEmpty()
     }
     return false;
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 bool linkedQ<T>::isFull()
 {
     return false; //since dynamic memory the Queue will never be full unless you run out of memory
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::initializeQ()
 {
@@ -31,7 +79,23 @@ void linkedQ<T>::initializeQ()
     }
     rearQ = nullptr;
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::deleteQ()   //need to delete info as well.
 {
@@ -53,13 +117,46 @@ void linkedQ<T>::deleteQ()   //need to delete info as well.
         }
     }
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 linkedQ<T>::linkedQ()
 {
     frontQ = nullptr;
     rearQ = nullptr;
 }
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::addQ(const T*& element)
 {
@@ -87,6 +184,23 @@ void linkedQ<T>::addQ(const T*& element)
         rearQ = rearQ -> link;
     }
 }
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <class T>
 T linkedQ<T>::front()
 {
@@ -99,7 +213,23 @@ T linkedQ<T>::front()
         cout<<"No info available."<<endl;
     }
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 T linkedQ<T>::back()
 {
@@ -112,13 +242,45 @@ T linkedQ<T>::back()
         cout << "rearQ info not found." <<endl;
     }
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 linkedQ<T>::~linkedQ()
 {
     deleteQ();
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 const linkedQ<T>& linkedQ<T>::operator=(const linkedQ<T>& rhs)
 {
@@ -128,14 +290,46 @@ const linkedQ<T>& linkedQ<T>::operator=(const linkedQ<T>& rhs)
     }
     return *this;
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 linkedQ<T>::LinkedQ(const linkedQ<T>& rhs)
 {
     frontQ = nullptr;
     copyQ(rhs);
 }
-
+//---------------------------------------------------------------------------------------- 
+// functionName: This function 
+//				1. R
+//				2. S
+//				3. S
+		
+// Incoming Data: N/A
+		
+// Outgoing Data: N/A
+		
+// Author: Kara Chobot
+		
+// Tester: 
+		
+// Notes: 
+		
+// -----------------------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::copyQ(const linkedQ<T>& rhs)
 {
