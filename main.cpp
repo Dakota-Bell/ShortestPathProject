@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #inlcude "Q.cpp" // includes everything from all other headers and classes
 #include "Dijkstra.h"
 using namespace std;
@@ -19,6 +20,18 @@ int main()
 	cin >> end;
 
 	dijkstra(start, MAX);
+
+	ofstream outputFile("Path.txt"); 	//Created an output outputFile
+	if (outputFile.is_open()) 		//Checking if file is opened
+	{
+	    outputFile << " " << endl;
+	    
+	    outputFile.close(); 	//Closing the output file
+	}
+	else
+	{
+	    cout << "File not created" << endl; 	//Error message displayed
+	}
 	
   return 0;
 }
