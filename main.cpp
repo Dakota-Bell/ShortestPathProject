@@ -1,17 +1,9 @@
 #include <iostream>
 #inlcude "Q.cpp" // includes everything from all other headers and classes
+#include "Dijkstra.h"
 using namespace std;
 
-const int MAX_V = 100; 	//max no of vertices
-const int INF = 1e9; 	//representing infinity
-
 void menu(string[], int);
-
-int adjMatrix[MAX_V][MAX_V]; 	// Adjacency matrix for graph weights
-int dist[MAX_V]; 		// Stores shortest distance from source
-bool visited[MAX_V]; 		// Keeps track of visited vertices
-
-void dijkstra(int, int);
 
 int main()
 {
@@ -54,48 +46,3 @@ int main()
   	}
   	cout << endl;
 }
-
-//---------------------------------------------------------------------------------------- 
-	// dijkstra(): Algorithm for eyeball
-		
-	// Incoming Data: the starting location and
-		
-	// Outgoing Data: N/A
-		
-	// Author: Chhavi Chhavi
-		
-	// Tester: 
-		
-	// Notes: 
-		
-	// --------------------------------------------------------------------------- 
-void dijkstra(int start, int n) {
-    for (int i = 0; i < n; i++) {
-        dist[i] = INF;
-        visited[i] = false;
-    }
-    
-    dist[start] = 0;
-
-    for (int i = 0; i < n; ++i) {
-        int u = -1;
-        // Finding the vertex with the smallest distance
-        for (int j = 0; j < n; ++j) {
-            if (!visited[j] && (u == -1 || dist[j] < dist[u])) {
-                u = j;
-            }
-        }
-
-        if (dist[u] == INF) {
-            break; // Remaining vertices are unreachable
-        }
-
-        visited[u] = true;
-        for (int v = 0; v < n; ++v) {
-            if (adjMatrix[u][v] != 0 && dist[u] + adjMatrix[u][v] < dist[v]) { 
-                dist[v] = dist[u] + adjMatrix[u][v];
-            }
-        }
-    }
-}
-
