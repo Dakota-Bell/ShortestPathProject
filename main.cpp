@@ -1,4 +1,5 @@
 #include <iostream>
+#inlcude "Q.cpp" // includes everything from all other headers and classes
 using namespace std;
 
 const int MAX_V = 100; 	//max no of vertices
