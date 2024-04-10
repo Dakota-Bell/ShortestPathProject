@@ -1,3 +1,5 @@
+#ifndef FILECLASS_H
+#define FILECLASS_H
 #include <iostream>
 #include <fstream>
 #include "VertexStruct.h"
@@ -14,3 +16,5 @@ class FileClass
 		void readFromFile();
 		FileClass();
 };
+
+#endif
