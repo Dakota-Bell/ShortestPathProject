@@ -1,5 +1,5 @@
 #include <iostream>
-#include "VertexStruct.cpp"
+#include "VertexStruct.h"
 #include "Q.h"
 using namespace std;
 //---------------------------------------------------------------------------------------- 
@@ -282,7 +282,7 @@ const linkedQ<T>& linkedQ<T>::operator=(const linkedQ<T>& rhs)
 {
     if(this != &rhs)
     {
-        copyQ(rhs)
+        copyQ(rhs);
     }
     return *this;
 }
@@ -342,14 +342,14 @@ void linkedQ<T>::copyQ(const linkedQ<T>& rhs)
     {
         frontQ = nullptr;
         rearQ = nullptr;
-        count = 0
+        count = 0;
     }
     else
     {
         current = rhs.frontQ;
         count = rhs.count;
 
-        frontQ = newVert<T>;
+        frontQ = new Vertex<T>;
         frontQ -> info = current -> info;
         /*
             frontQ ->name = current ->name;
