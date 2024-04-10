@@ -39,7 +39,6 @@ void FileClass<T>::readFromFile()//string n, int c[MAX_VALUES], int w[MAX_VALUES
 		cout << endl;
 	}
 			
-			
 /*
 	// get the connecting vertexes and store into the c array
 			
@@ -59,7 +58,7 @@ void FileClass<T>::readFromFile()//string n, int c[MAX_VALUES], int w[MAX_VALUES
 			
 	// display for debugging
 	infile.close();
-	cout << "leaving the readFromFile method!" << endl;
+	cout << "leaving the readFromFile method!";
 }
 	
 //---------------------------------------------------------------------------------------- 
@@ -67,7 +66,8 @@ void FileClass<T>::readFromFile()//string n, int c[MAX_VALUES], int w[MAX_VALUES
 //				do NOT need to include the size of the array in the constructor
 //				when doing it this way.
 		
-// Incoming Data: readFromFile info, a vertex
+// Incoming Data: readFromFile info, a vertex that will hold the infomation from one 
+//				  
 		
 // Outgoing Data: N/A
 		
@@ -78,7 +78,13 @@ void FileClass<T>::readFromFile()//string n, int c[MAX_VALUES], int w[MAX_VALUES
 // Notes: 
 		
 // --------------------------------------------------------------------------- 
-		
+template <class T>
+T FileClass<T>::writeIntoArray(T name[])
+{
+	// get info from the file into each individual index for each vertex
+	
+	return this;
+}
 		
 //---------------------------------------------------------------------------------------- 
 // Constructor, initialize the name, and two parallel arrys. You
