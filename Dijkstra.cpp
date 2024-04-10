@@ -2,13 +2,13 @@
 #include "Dijkstra.h"
 
 //Global variables
-int adjMatrix[MAX_V][MAX_V]; 	// Adjacency matrix for graph weights
-int dist[MAX_V]; 		        // Stores shortest distance from source
-bool visited[MAX_V]; 	    	// Keeps track of visited vertices
+int adjMatrix[MAX_V][MAX_V]; 		// Adjacency matrix for graph weights
+int dist[MAX_V]; 		 	// Stores shortest distance from source
+bool visited[MAX_V]; 	    		// Keeps track of visited vertices
 
 //---------------------------------------------------------------------------------------- 
 	// dijkstra(): Implements the Dijkstra's algorithm to find the shortest paths from a given source vertex
-    //             to all other vertices in a graph with non-negative weights.
+    	//             to all other vertices in a graph with non-negative weights.
 		
 	// Incoming Data: the starting location and number of vertices
 		
