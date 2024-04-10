@@ -3,14 +3,12 @@
 #include "Q.h"
 using namespace std;
 //---------------------------------------------------------------------------------------- 
-// functionName: This function 
-//				1. R
-//				2. S
-//				3. S
+// isEmpty(): This function returns true or false depending on whether or not the queue
+//		is contains a vertex or not.
 		
 // Incoming Data: N/A
 		
-// Outgoing Data: N/A
+// Outgoing Data: True or False depending on whether or not the Queue is empty.
 		
 // Author: Kara Chobot
 		
@@ -29,14 +27,12 @@ bool linkedQ<T>::isEmpty()
     return false;
 }
 //---------------------------------------------------------------------------------------- 
-// functionName: This function 
-//				1. R
-//				2. S
-//				3. S
+// isFull: This function returns. The queue should always return false due to using dynamic 
+//		memory allocation unless you have run out of memory on your computer.
 		
 // Incoming Data: N/A
 		
-// Outgoing Data: N/A
+// Outgoing Data: false
 		
 // Author: Kara Chobot
 		
@@ -51,7 +47,7 @@ bool linkedQ<T>::isFull()
     return false; //since dynamic memory the Queue will never be full unless you run out of memory
 }
 //---------------------------------------------------------------------------------------- 
-// functionName: This function 
+// initializeQ: This function 
 //				1. R
 //				2. S
 //				3. S
@@ -308,7 +304,7 @@ const linkedQ<T>& linkedQ<T>::operator=(const linkedQ<T>& rhs)
 		
 // -----------------------------------------------------------------------------------------
 template <typename T>
-linkedQ<T>::LinkedQ(const linkedQ<T>& rhs)
+linkedQ<T>::linkedQ(const linkedQ<T>& rhs)
 {
     frontQ = nullptr;
     copyQ(rhs);
