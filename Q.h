@@ -1,5 +1,5 @@
-#ifndef Q_H_INCLUDED
-#define Q_H_INCLUDED
+#ifndef Q_H
+#define Q_H
 
 //kept misspelling Queue so shortened to Q
 template <class T>
