@@ -10,6 +10,8 @@ int adjMatrix[MAX_V][MAX_V]; 	// Adjacency matrix for graph weights
 int distance[MAX_V]; 		// Stores shortest distance from source
 bool visited[MAX_V]; 		// Keeps track of visited vertices
 
+void dijkstra(int, int);
+
 int main()
 {
   int MAX = 9;
@@ -56,7 +58,7 @@ void dijkstra(int start, int n)
 {
     for (int i = 0; i < n; i++) 
     {
-        distance[i] = INF;
+        dist[i] = INF;
         visited[i] = false;
     }
 	
