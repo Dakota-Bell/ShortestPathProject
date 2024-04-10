@@ -1,12 +1,11 @@
 #include "FileClass.h"
 template <class T>
 //---------------------------------------------------------------------------------------- 
-// readFromFile: This function is basically like a "vertex.getName()" method.
+// readFromFile: Reads in the names of the vertexes from a file
 //				1. Read in from the file
 //				2. Store the name of the vertex
-//				3. Store the connections and weights into their arrays
 		
-// Incoming Data: N/A
+// Incoming Data: No parameters, but we have an input file names "ShippingInfo.txt"
 		
 // Outgoing Data: N/A
 	
@@ -18,7 +17,7 @@ template <class T>
 		
 // --------------------------------------------------------------------------- 
 //template <class T>
-void FileClass<T>::readFromFile()//string n, int c[MAX_VALUES], int w[MAX_VALUES])
+void FileClass<T>::readVertexesFromFile()
 {
 	ifstream infile("ShippingInfo.txt");
 	// check if the file even exists
@@ -39,24 +38,6 @@ void FileClass<T>::readFromFile()//string n, int c[MAX_VALUES], int w[MAX_VALUES
 		cout << endl;
 	}
 			
-/*
-	// get the connecting vertexes and store into the c array
-			
-	int linesCounted; // for keeping track of how many total numbers there are in the rest of 
-					  // a line, you keep track of the number of commas + 1 and divide by two 
-					  // so you know how many connections and weights there are for that vertex
-			
-	// count the number of commas
-			
-	while(getline(infile, connections[i], ','))
-	{
-		i++;
-		cout << connections[i] << endl;
-	}
-			*/
-	// get the weights of each edge (they must be in order) and store into the w array
-			
-	// display for debugging
 	infile.close();
 	cout << "leaving the readFromFile method!";
 }
