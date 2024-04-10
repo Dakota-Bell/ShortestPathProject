@@ -55,9 +55,9 @@ int main()
 }
 
 //---------------------------------------------------------------------------------------- 
-	// dijkstra(): 
+	// dijkstra(): Algorithm for eyeball
 		
-	// Incoming Data: 
+	// Incoming Data: the starting location and
 		
 	// Outgoing Data: N/A
 		
