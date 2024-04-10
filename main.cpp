@@ -26,7 +26,7 @@ int main()
 	cout << "Enter your ending port number: ";
 	cin >> end;
 
-	dijkstra(start, vertices);
+	dijkstra(start, MAX);
 	
   return 0;
 }
@@ -76,7 +76,7 @@ void dijkstra(int start, int n)
         dist[i] = INF;
         visited[i] = false;
     }
-	
+    
     dist[start] = 0;
 
     for (int i = 0; i < n; ++i) 
@@ -84,23 +84,23 @@ void dijkstra(int start, int n)
         int u = -1;
         // Finding the vertex with the smallest distance
         for (int j = 0; j < n; ++j) 
-	{
+        {
             if (!visited[j] && (u == -1 || dist[j] < dist[u])) 
-	    {
+            {
                 u = j;
             }
         }
 
-        if (dist[u] == INF)
-	{
-		break; // Remaining vertices are unreachable
-	}
+        if (dist[u] == INF) 
+        {
+            break; // Remaining vertices are unreachable
+        }
 
         visited[u] = true;
         for (int v = 0; v < n; ++v) 
-	{
-            if (adjMatrix[u][v] && dist[u] + adjMatrix[u][v] < dist[v])
-	    { 
+        {
+            if (adjMatrix[u][v] != 0 && dist[u] + adjMatrix[u][v] < dist[v]) 
+            { 
                 dist[v] = dist[u] + adjMatrix[u][v];
             }
         }
