@@ -17,6 +17,7 @@ class FileClass
 		T writeIntoArray(T name[]); // templated so anytype of data may be returned
 									// depending on the class type you need to return
 		FileClass();
+		void writePathInstructionsToFile();
 };
 
 #endif
