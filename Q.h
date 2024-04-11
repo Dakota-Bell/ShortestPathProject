@@ -21,7 +21,7 @@ private:
     //int count;
     Vertex<T> *frontQ;
     Vertex<T> *rearQ;
-    void addQ(const T*& element);
+    
 
 public:
     const linkedQ <T>& operator=(const linkedQ<T>& rhs); 
@@ -36,6 +36,7 @@ public:
     T back(); 
     ~linkedQ(); 
     void copyQ(const linkedQ<T> & rhs);
+    void addQ(const T*& element);
 };
 
 
