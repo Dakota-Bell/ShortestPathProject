@@ -85,3 +85,44 @@ T FileClass<T>::writeIntoArray(T name[])
 // --------------------------------------------------------------------------- 
 template <class T>
 FileClass<T>::FileClass():name(){}
+
+//---------------------------------------------------------------------------------------- 
+// writePathInstructionsToFile(): Write the path instructions from the starting port to the 
+//                                  ending port into a file.
+		
+// Incoming Data: starting port, ending port, array of strings containing the instructions
+//                  and an integer representing the number of instructions in the ins[] array
+		
+// Outgoing Data: N/A
+		
+// Author: Chhavi Chhavi
+		
+// Tester: 
+		
+// Notes: 
+		
+// --------------------------------------------------------------------------- 
+
+void writePathInstructionsToFile(string& startPort, string& endPort,string ins[], int noOfIns) 
+{
+    ofstream outputFile("Path.txt"); //Created an outputFile
+
+    if (outputFile.is_open()) 		//Checking if file is opened
+	{
+	    // Write the start and end ports at the top of the file
+        outputFile << "Path Instructions from " << startPort << " to " << endPort << ":\n\n";
+    
+        // Write each instruction to the file, line by line
+        for (int i = 0; i < noOfIns; ++i) 
+        {
+            outputFile << ins[i] << endl;
+        }
+	    
+	    outputFile.close(); 	//Closing the output file
+	}
+	else
+	{
+	    cout << "File not created" << endl; 	//Error message displayed
+	}
+}
+
