@@ -29,7 +29,7 @@ Dijkstra<T>::Dijkstra()
 		
 	// Tester: 
 		
-	// Notes: 
+	// Notes: Kara Chobot - updated template Syntax
 		
 	// --------------------------------------------------------------------------- 
 
