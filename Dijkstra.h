@@ -2,10 +2,19 @@
 #define DIJKSTRA_H
 #include <iostream>
 
-const int MAX_V = 100;  // Max number of vertices
-const int INF = 1e9;    // Representing infinity
+class Dijkstra
+{
+    public:
+        static const int MAX_V = 100;  // Max number of vertices, made public and static
+        static const int INF = 1e9;    // Representing infinity, made public and static
 
-//Function declaration for the dijkstra algorithm.
-void dijkstra(int start, int n);
+        Dijkstra();                     // Constructor declaration
+        void run(int start, int n);     // Corrected function declaration
 
-#endif 
+    private:
+        int dist[MAX_V];            // Stores shortest distance from source
+        bool visited[MAX_V];        // Keeps track of visited vertices
+        int adjMatrix[MAX_V][MAX_V]; // Adjacency matrix for graph weights
+};
+
+#endif
