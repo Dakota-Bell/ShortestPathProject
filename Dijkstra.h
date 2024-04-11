@@ -1,6 +1,7 @@
 #ifndef DIJKSTRA_H
 #define DIJKSTRA_H
 #include <iostream>
+
 //---------------------------------------------------------------------------------------- 
 	// fileName(): I
 		
@@ -8,26 +9,27 @@
 		
 	// Outgoing Data: N/A
 		
-	// Author: Chavi Chavi
+	// Author: Chhavi Chhavi
 		
 	// Tester: 
 		
-	// Notes: Templated by Kara Chobot
+	// Notes: 
 		
 	// --------------------------------------------------------------------------- 
-class Dijkstra
+template <typename T>
+class Dijkstra 
 {
     public:
-        static const int MAX_V = 100;  // Max number of vertices, made public and static
-        static const int INF = 1e9;    // Representing infinity, made public and static
-
-        Dijkstra();                     // Constructor declaration
-        void run(T start, T n);     // Corrected function declaration
-
+        static const int MAX_V = 100;  // Max number of vertices
+    
+        Dijkstra(T infinity);          // Constructor with infinity value
+        void run(int start, int n);    // Function to execute the algorithm
+    
     private:
-        T dist[MAX_V];            // Stores shortest distance from source
-        bool visited[MAX_V];        // Keeps track of visited vertices
-        T adjMatrix[MAX_V][MAX_V]; // Adjacency matrix for graph weights
+        T dist[MAX_V];                 // Stores shortest distance from source
+        bool visited[MAX_V];           // Keeps track of visited vertices
+        T adjMatrix[MAX_V][MAX_V];     // Adjacency matrix for graph weights
+        T INF;                         // Infinity value provided by the user
 };
 
 #endif
