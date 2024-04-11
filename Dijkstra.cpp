@@ -1,14 +1,23 @@
-#include <iostream>
 #include "Dijkstra.h"
 
-//Global variables
-int adjMatrix[MAX_V][MAX_V]; 		// Adjacency matrix for graph weights
-int dist[MAX_V]; 		 	// Stores shortest distance from source
-bool visited[MAX_V]; 	    		// Keeps track of visited vertices
-
+// Constructor
+Dijkstra::Dijkstra() 
+{
+    // Initialize all adjacency matrix values to 0, indicating no edges
+    for (int i = 0; i < MAX_V; ++i) 
+    {
+        for (int j = 0; j < MAX_V; ++j) 
+        {
+            adjMatrix[i][j] = 0;
+        }
+        
+        dist[i] = INF;
+        visited[i] = false;
+    }
+}
 //---------------------------------------------------------------------------------------- 
 	// dijkstra(): Implements the Dijkstra's algorithm to find the shortest paths from a given source vertex
-    	//             to all other vertices in a graph with non-negative weights.
+    //             to all other vertices in a graph with non-negative weights.
 		
 	// Incoming Data: the starting location and number of vertices
 		
@@ -22,45 +31,33 @@ bool visited[MAX_V]; 	    		// Keeps track of visited vertices
 		
 	// --------------------------------------------------------------------------- 
 
-void dijkstra(int start, int n) 
+void Dijkstra::run(int start, int n) 
 {
-    // Initialize distances as infinite and visited status as false for all vertices
     for (int i = 0; i < n; i++) 
     {
         dist[i] = INF;
         visited[i] = false;
     }
 
-    // Distance from the start vertex to itself is always 0
     dist[start] = 0;
 
-    // Main loop: runs 'n' times, each time selecting a new vertex to 'visit'
     for (int i = 0; i < n; ++i) 
     {
-        int u = -1; // Variable to store the vertex with the smallest known distance so far
+        int u = -1; // Vertex with the smallest known distance
 
-        // Find the unvisited vertex with the smallest distance
-        for (int j = 0; j < n; ++j) 
-        {
-            if (!visited[j] && (u == -1 || dist[j] < dist[u])) 
-            {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[j] && (u == -1 || dist[j] < dist[u])) {
                 u = j;
             }
         }
 
-        // If the smallest distance is infinite, remaining vertices are unreachable
-        if (dist[u] == INF) 
-        {
+        if (dist[u] == INF) {
             break;
         }
 
-        // Mark the selected vertex as visited
         visited[u] = true;
 
-        // Update the distance to each neighboring vertex of 'u'
-        for (int v = 0; v < n; ++v) 
-        {
-            // If there's an edge from 'u' to 'v' and the total distance is smaller, update 'v's distance
+        for (int v = 0; v < n; ++v) {
             if (adjMatrix[u][v] != 0 && dist[u] + adjMatrix[u][v] < dist[v]) 
             {
                 dist[v] = dist[u] + adjMatrix[u][v];
