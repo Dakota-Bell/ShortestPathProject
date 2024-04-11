@@ -1,7 +1,19 @@
 #ifndef Q_H
 #define Q_H
-
-//kept misspelling Queue so shortened to Q
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: kept misspelling Queue so shortened to Q
+		
+	// --------------------------------------------------------------------------- 
 template <class T>
 class linkedQ
 {
