@@ -3,7 +3,20 @@
 using namespace std;
 
 //priority q implemented in heap is efficeint. this is less efficient way but still gets 100.
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 bool linkedQ<T>::isEmpty()
 {
@@ -13,13 +26,39 @@ bool linkedQ<T>::isEmpty()
     }
     return false;
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 bool linkedQ<T>::isFull()
 {
     return false; //since dynamic memory the Queue will never be full unless you run out of memory
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::initializeQ()
 {
@@ -32,7 +71,20 @@ void linkedQ<T>::initializeQ()
     }
     rearQ = nullptr;
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::deleteQ()   //need to delete info as well.
 {
@@ -54,13 +106,40 @@ void linkedQ<T>::deleteQ()   //need to delete info as well.
         }
     }
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 linkedQ<T>::linkedQ()
 {
     frontQ = nullptr;
     rearQ = nullptr;
 }
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::addQ(const T*& element)
 {
@@ -86,6 +165,20 @@ void linkedQ<T>::addQ(const T*& element)
         rearQ = rearQ -> link;
     }
 }
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <class T>
 void linkedQ<T>::front()
 {
@@ -98,7 +191,20 @@ void linkedQ<T>::front()
         cout<<"No info available."<<endl;
     }
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::back()
 {
@@ -111,7 +217,20 @@ void linkedQ<T>::back()
         cout << "rearQ info not found." <<endl;
     }
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 linkedQ<T>::~linkedQ()
 {
@@ -127,14 +246,40 @@ const linkedQ<T>& linkedQ<T>::operator=(const linkedQ<T>& rhs)
     }
     return *this;
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 linkedQ<T>::linkedQ(const linkedQ<T>& rhs)
 {
     frontQ = nullptr;
     copyQ(&rhs);
 }
-
+//---------------------------------------------------------------------------------------- 
+	// fileName(): I
+		
+	// Incoming Data: N/A
+		
+	// Outgoing Data: N/A
+		
+	// Author: Kara Chobot
+		
+	// Tester: 
+		
+	// Notes: 
+		
+	// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::copyQ(const linkedQ<T>& rhs)
 {
