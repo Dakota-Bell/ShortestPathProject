@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#inlcude "Q.cpp" // includes everything from all other headers and classes
+#include "Q.cpp" // includes everything from all other headers and classes
 #include "Dijkstra.h"
 using namespace std;
 
@@ -19,22 +19,12 @@ int main()
 	cout << "Enter your ending port number: ";
 	cin >> end;
 
-	dijkstra(start, MAX);
+	Dijkstra dijkstra;          // Created an instance of Dijkstra
+    dijkstra.run(start, MAX);   // Run the Dijkstra algorithm from 'start' over 'MAX' vertices
 
-	ofstream outputFile("Path.txt"); 	//Created an output outputFile
-	if (outputFile.is_open()) 		//Checking if file is opened
-	{
-	    outputFile << " " << endl;
-	    
-	    outputFile.close(); 	//Closing the output file
-	}
-	else
-	{
-	    cout << "File not created" << endl; 	//Error message displayed
-	}
-	
   return 0;
 }
+
 
   //---------------------------------------------------------------------------------------- 
 	// Menu(): simpliy prints out the menu of optional ports to begin at and potential 
