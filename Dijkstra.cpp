@@ -1,7 +1,9 @@
 #include "Dijkstra.h"
-
+using namespace std;
 // Constructor
-Dijkstra::Dijkstra() 
+
+template <typename T>
+Dijkstra<T>::Dijkstra() 
 {
     // Initialize all adjacency matrix values to 0, indicating no edges
     for (int i = 0; i < MAX_V; ++i) 
@@ -31,7 +33,8 @@ Dijkstra::Dijkstra()
 		
 	// --------------------------------------------------------------------------- 
 
-void Dijkstra::run(int start, int n) 
+template <typename>
+void Dijkstra<T>::run(int start, int n) 
 {
     for (int i = 0; i < n; i++) 
     {
