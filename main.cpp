@@ -19,9 +19,6 @@ int main()
 	cout << "Enter your ending port number: ";
 	cin >> end;
 
-	Dijkstra dijkstra;          // Created an instance of Dijkstra
-    dijkstra.run(start, MAX);   // Run the Dijkstra algorithm from 'start' over 'MAX' vertices
-
   return 0;
 }
 
