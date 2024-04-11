@@ -1,9 +1,8 @@
 #include "Dijkstra.h"
-using namespace std;
-// Constructor
 
+// Constructor
 template <typename T>
-Dijkstra<T>::Dijkstra() 
+Dijkstra<T>::Dijkstra(T infinity) : INF(infinity) 
 {
     // Initialize all adjacency matrix values to 0, indicating no edges
     for (int i = 0; i < MAX_V; ++i) 
@@ -17,6 +16,8 @@ Dijkstra<T>::Dijkstra()
         visited[i] = false;
     }
 }
+
+
 //---------------------------------------------------------------------------------------- 
 	// dijkstra(): Implements the Dijkstra's algorithm to find the shortest paths from a given source vertex
     //             to all other vertices in a graph with non-negative weights.
@@ -29,11 +30,11 @@ Dijkstra<T>::Dijkstra()
 		
 	// Tester: 
 		
-	// Notes: Kara Chobot - updated template Syntax
+	// Notes: 
 		
 	// --------------------------------------------------------------------------- 
 
-template <typename>
+template <typename T>
 void Dijkstra<T>::run(int start, int n) 
 {
     for (int i = 0; i < n; i++) 
@@ -46,21 +47,25 @@ void Dijkstra<T>::run(int start, int n)
 
     for (int i = 0; i < n; ++i) 
     {
-        int u = -1; // Vertex with the smallest known distance
+        int u = -1;  // Vertex with the smallest known distance
 
-        for (int j = 0; j < n; ++j) {
-            if (!visited[j] && (u == -1 || dist[j] < dist[u])) {
+        for (int j = 0; j < n; ++j) 
+        {
+            if (!visited[j] && (u == -1 || dist[j] < dist[u])) 
+            {
                 u = j;
             }
         }
 
-        if (dist[u] == INF) {
+        if (dist[u] == INF) 
+        {
             break;
         }
 
         visited[u] = true;
 
-        for (int v = 0; v < n; ++v) {
+        for (int v = 0; v < n; ++v) 
+        {
             if (adjMatrix[u][v] != 0 && dist[u] + adjMatrix[u][v] < dist[v]) 
             {
                 dist[v] = dist[u] + adjMatrix[u][v];
