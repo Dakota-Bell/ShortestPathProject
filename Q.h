@@ -1,5 +1,6 @@
 #ifndef Q_H
 #define Q_H
+#include "VertexStruct.h"
 //---------------------------------------------------------------------------------------- 
 	// fileName(): I
 		
@@ -21,10 +22,11 @@ private:
     //int count;
     Vertex<T> *frontQ;
     Vertex<T> *rearQ;
-    
+    static const int MAX_VAL = 25;
+    void addQ(const T*& element);
 
 public:
-    void readVertexesFromFile(T);
+	void readVertexesFromFile(T);
     const linkedQ <T>& operator=(const linkedQ<T>& rhs); 
     linkedQ();
     linkedQ(const linkedQ<T>& rhs); 
@@ -37,7 +39,7 @@ public:
     T back(); 
     ~linkedQ(); 
     void copyQ(const linkedQ<T> & rhs);
-    void addQ(const T*& element);
+    
 };
 
 
