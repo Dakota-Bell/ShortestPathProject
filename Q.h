@@ -24,6 +24,7 @@ private:
     
 
 public:
+    void readVertexesFromFile(T);
     const linkedQ <T>& operator=(const linkedQ<T>& rhs); 
     linkedQ();
     linkedQ(const linkedQ<T>& rhs); 
