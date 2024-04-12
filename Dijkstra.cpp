@@ -28,7 +28,7 @@ Dijkstra<T>::Dijkstra(T infinity) : INF(infinity)
 		
 	// Author: Chhavi Chhavi
 		
-	// Tester: 
+	// Tester: Dakota Bell
 		
 	// Notes: 
 		
