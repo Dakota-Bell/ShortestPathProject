@@ -39,7 +39,7 @@ bool linkedQ<T>::isEmpty()
 	
 // Author: Dakota Bell
 		
-// Tester: 
+// Tester: Kara Chobot
 		
 // Notes: 
 
@@ -88,27 +88,27 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 		obj.link;
 		k++;
 		cout << endl;
-//---------------------------------------------------------------------------------------- 
-	// isFull(): Determines if the qu
 	}
 	 
 	matrixList.close();
 	infile.close(); // close the file since we're finished reading from it
 	cout << "leaving the readFromFile method!";
 }
+//---------------------------------------------------------------------------------------- 
+// isFull(): Determines if the queue is full
+	
+// Incoming Data: N/A
 		
-	// Incoming Data: N/A
+// Outgoing Data: False, since the Queue made of dynamic memory it will never be
+//		   full unless you run out of memory.
 		
-	// Outgoing Data: False, since the Queue made of dynamic memory it will never be
-	//		   full unless you run out of memory.
+// Author: Kara Chobot
 		
-	// Author: Kara Chobot
+// Tester: 
 		
-	// Tester: 
+// Notes: 
 		
-	// Notes: 
-		
-	// --------------------------------------------------------------------------- 
+// --------------------------------------------------------------------------- 		
 template <typename T>
 bool linkedQ<T>::isFull()
 {
