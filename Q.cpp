@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Q.h"
 using namespace std;
 
@@ -47,8 +48,6 @@ template <class T>
 void linkedQ<T>::readVertexesFromFile(T obj)
 {
 	cout << "Entering readVertexesFromFile()" << endl;
-	//Vertex<T> *temp; // create temp value for the object being passed in
-	
 	
 	ifstream infile("ShippingInfo.txt");
 	// check if the file even exists
@@ -70,11 +69,15 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 	
 	// if the file exists, get the name of the vetrtex
 	int i = 0;
+	linkedQ<T>* temp[MAX_VAL];
 	while(infile) // while the file is open
 	{
-		++i; 
-		getline(infile, obj.name[i]); // read a line until you get to a period
-		cout << i << ". " << obj.name[i] << endl;; // store that name at whatever index it needs
+		getline(infile, obj.name); // read a line and store the name of the vertex at this point
+		cout << i + 1<< ". " << obj.name << endl;; // store that name at whatever index it needs
+//		temp->front[i] = obj; // place a vertex into the temp linkedQ
+//		addQ(temp->front[i]);
+		obj.link;
+		i++; 
 	}
 	
 	int k = 0; cout << endl;
@@ -82,16 +85,17 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 	{
 		getline(matrixList, obj.connection[k]); // read from the 
 		cout << obj.connection[k];
+		obj.link;
 		k++;
 		cout << endl;
+//---------------------------------------------------------------------------------------- 
+	// isFull(): Determines if the qu
 	}
 	 
 	matrixList.close();
-//	infile.close(); // close the file since we're finished reading from it
+	infile.close(); // close the file since we're finished reading from it
 	cout << "leaving the readFromFile method!";
 }
-//---------------------------------------------------------------------------------------- 
-	// isFull(): Determines if the queue is full or empty
 		
 	// Incoming Data: N/A
 		
@@ -208,8 +212,8 @@ void linkedQ<T>::addQ(const T*& element) //element needs to be name, info, weigh
     newVert = new Vertex<T>;
 
     newVert -> name = element -> name;   //(need info or just do below code?. figure out how but this syntax dynamically creates vertices.)
-    newVert -> weight = element -> weight;
-    newVert -> connections = element -> connections;
+//    newVert -> weight = element -> weight;
+    newVert -> connection = element -> connection;
 
     newVert -> link = nullptr;
 
@@ -239,7 +243,7 @@ void linkedQ<T>::addQ(const T*& element) //element needs to be name, info, weigh
 		
 	// --------------------------------------------------------------------------- 
 template <class T>
-void linkedQ<T>::front()
+T linkedQ<T>::front()
 {
     if(frontQ != nullptr)
     {
@@ -265,7 +269,7 @@ void linkedQ<T>::front()
 		
 	// --------------------------------------------------------------------------- 
 template <typename T>
-void linkedQ<T>::back()
+T linkedQ<T>::back()
 {
     if(rearQ != nullptr)
     {
