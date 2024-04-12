@@ -28,6 +28,69 @@ bool linkedQ<T>::isEmpty()
     return false;
 }
 //---------------------------------------------------------------------------------------- 
+// readFromFile: Reads in the names of the vertexes from a file
+//				1. Read in from the file
+//				2. Store the name of the vertex
+		
+// Incoming Data: No parameters, but we have an input file names "ShippingInfo.txt"
+		
+// Outgoing Data: N/A
+	
+// Author: Dakota Bell
+		
+// Tester: 
+		
+// Notes: 
+
+// --------------------------------------------------------------------------- 
+template <class T>
+void linkedQ<T>::readVertexesFromFile(T obj)
+{
+	cout << "Entering readVertexesFromFile()" << endl;
+	//Vertex<T> *temp; // create temp value for the object being passed in
+	
+	
+	ifstream infile("ShippingInfo.txt");
+	// check if the file even exists
+	if (infile.fail())
+	{
+		cout << "File not found" << endl;
+		exit(1); // Terminates the prblem
+		return;
+	}
+
+	ifstream matrixList("matrix-list.txt");
+	// check if the file even exists
+	if (matrixList.fail())
+	{
+		cout << "File not found" << endl;
+		exit(1); // Terminates the prblem
+		return;
+	}
+	
+	// if the file exists, get the name of the vetrtex
+	int i = 0;
+	while(infile) // while the file is open
+	{
+		++i; 
+		getline(infile, obj.name[i]); // read a line until you get to a period
+		cout << i << ". " << obj.name[i] << endl;; // store that name at whatever index it needs
+	}
+	
+	int k = 0; cout << endl;
+	while(matrixList)
+	{
+		getline(matrixList, obj.connection[k]); // read from the 
+		cout << obj.connection[k];
+		k++;
+		cout << endl;
+	}
+	 
+	matrixList.close();
+//	infile.close(); // close the file since we're finished reading from it
+	cout << "leaving the readFromFile method!";
+}
+//---------------------------------------------------------------------------------------- 
 	// isFull(): Determines if the queue is full or empty
 		
 	// Incoming Data: N/A
