@@ -1,3 +1,18 @@
+// --------------------------------------------------------------------------- 
+// Name: Kara Chobot, Dakota Bell, Chhavi Chhavi
+// Course-Section: CS355-section 01
+// Assignment: project # 4
+// Date due: 04/15/2024
+// Description: The vertex struct portion of the program intended to calculate
+//		the shortest shipping path.
+// --------------------------------------------------------------------------- 
+
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+//					VERTEX STRUCT
+
+//////////////////////////////////////////////////////////////////////////////////////// 
+
 #include <iostream>
 using namespace std;
 
