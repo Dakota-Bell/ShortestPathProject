@@ -33,27 +33,27 @@ using namespace std;
 template <class T> 
 struct Vertex
 {
-		int userMax = 0;
-		string name; // hold name of the vertex, a name is always going to be a string.
-		T connection[25]; // hold up to 9 connecting vertexes
-		//T weights[9]; // hold up to 9 weights
-		T* link; // for the array-based linkedList queue, that Kara has begun implemementing
-	public:
-		Vertex operator=(const Vertex<T>& rhs)
-		{
-			if(this != &rhs)
-			{
-			    copyVertex(rhs);
-			}
-			return this;
-		}
+    int userMax = 0;
+    string name; // hold name of the vertex, a name is always going to be a string.
+    T connection[25]; // hold up to 9 connecting vertexes
+    //T weights[9]; // hold up to 9 weights
+    T* link; // for the array-based linkedList queue, that Kara has begun implemementing
+public:
+    Vertex operator=(const Vertex<T>& rhs)
+    {
+        if(this != &rhs)
+	{
+            copyVertex(rhs);
+        }
+	    return this;
+	}
 		
-		Vertex copyVertex(const Vertex<T>& rhs)
-		{
-			name = rhs.name;
-			for(int i = 0; i < userMax; i++)
-			{
-			    connection[i] = rhs.connection[i];
-			}
-		}
+    Vertex copyVertex(const Vertex<T>& rhs)
+    {
+        name = rhs.name;
+	for(int i = 0; i < userMax; i++)
+	{
+	    connection[i] = rhs.connection[i];
+	}
+    }
 };
