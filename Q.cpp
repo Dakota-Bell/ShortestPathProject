@@ -85,8 +85,8 @@ void linkedQ<T>::readVertexesFromFile(T obj)
     {
 	getline(infile, obj.name); // read a line and store the name of the vertex at this point
 	cout << i + 1<< ". " << obj.name << endl;; // store that name at whatever index it needs
-//	temp->front[i] = obj; // place a vertex into the temp linkedQ
-//	addQ(temp->front[i]);
+	//temp->front[i] = obj; // place a vertex into the temp linkedQ
+	//addQ(temp->front[i]);
 	obj.link;
 	i++; 
     }
