@@ -1,6 +1,21 @@
+// --------------------------------------------------------------------------- 
+// Name: Kara Chobot, Dakota Bell, Chhavi Chhavi
+// Course-Section: CS355-section 01
+// Assignment: project # 4
+// Date due: 04/15/2024
+// Description: The linkedQ prototypes and varialbes of a program intended to 
+//		calculate the shortest shipping path from beginning to end destination.
+// --------------------------------------------------------------------------- 
+
 #ifndef DIJKSTRA_H
 #define DIJKSTRA_H
 #include <iostream>
+
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+//				DIJKSTRA PROTOTYPES AND VARIABLES
+
+//////////////////////////////////////////////////////////////////////////////////////// 
 
 //---------------------------------------------------------------------------------------- 
 // The Dijkstra class implements Dijkstra's algorithm for finding the 
