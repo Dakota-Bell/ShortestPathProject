@@ -2,31 +2,30 @@
 #define Q_H
 #include "VertexStruct.h"
 //---------------------------------------------------------------------------------------- 
-	// fileName(): I
+// fileName(): I
 		
-	// Incoming Data: N/A
+// Incoming Data: N/A
 		
-	// Outgoing Data: N/A
+// Outgoing Data: N/A
 		
-	// Author: Kara Chobot
+// Author: Kara Chobot
 		
-	// Tester: 
+// Tester: 
 		
-	// Notes: kept misspelling Queue so shortened to Q
+// Notes: kept misspelling Queue so shortened to Q
 		
-	// --------------------------------------------------------------------------- 
+// --------------------------------------------------------------------------- 
 template <class T>
 class linkedQ
 {
 private:
-    //int count;
     Vertex<T> *frontQ;
     Vertex<T> *rearQ;
     static const int MAX_VAL = 25;
-    void addQ(const T*& element);
 
 public:
-	void readVertexesFromFile(T);
+    void readVertexesFromFile(T);
+    void addQ(const T*& element);
     const linkedQ <T>& operator=(const linkedQ<T>& rhs); 
     linkedQ();
     linkedQ(const linkedQ<T>& rhs); 
