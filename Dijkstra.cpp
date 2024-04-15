@@ -11,8 +11,11 @@ Dijkstra<T>::Dijkstra(T infinity) : INF(infinity)
         {
             adjMatrix[i][j] = 0;
         }
-        
-        dist[i] = INF;
+
+	// Distance from source to vertex i is infinity
+        dist[i] = INF; 
+
+	// Vertex i has not been visited
         visited[i] = false;
     }
 }
