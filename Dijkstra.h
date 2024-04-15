@@ -3,7 +3,9 @@
 #include <iostream>
 
 //---------------------------------------------------------------------------------------- 
-	// fileName(): I
+	// fileName(): The Dijkstra class implements Dijkstra's algorithm for finding the 
+	//		shortest path from a single source to all other vertices in a graph 
+	//		represented by an adjacency matrix.
 		
 	// Incoming Data: N/A
 		
@@ -15,7 +17,7 @@
 		
 	// Notes: 
 		
-	// --------------------------------------------------------------------------- 
+//---------------------------------------------------------------------------------------- 
 template <typename T>
 class Dijkstra 
 {
