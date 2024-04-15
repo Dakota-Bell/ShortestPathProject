@@ -1,7 +1,20 @@
+// --------------------------------------------------------------------------- 
+// Name: Kara Chobot, Dakota Bell, Chhavi Chhavi
+// Course-Section: CS355-section 01
+// Assignment: project # 4
+// Date due: 04/15/2024
+// Description: The LinkedQ class method definitions of a program intended to 
+//		calculate the shortest shipping path from beginning to end destination.
+// --------------------------------------------------------------------------- 
 #include <iostream>
 #include <fstream>
 #include "Q.h"
 using namespace std;
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+//				LINKEDQ METHOD DEFINITIONS
+
+//////////////////////////////////////////////////////////////////////////////////////// 
 
 //---------------------------------------------------------------------------------------- 
 // isEmpty(): returns true if the frontQ points to nullptr. False if there is
