@@ -6,15 +6,13 @@
 // Description: The vertex struct portion of the program intended to calculate
 //		the shortest shipping path.
 // --------------------------------------------------------------------------- 
-
+#include <iostream>
+using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////// 
 
 //					VERTEX STRUCT
 
 //////////////////////////////////////////////////////////////////////////////////////// 
-
-#include <iostream>
-using namespace std;
 
 //---------------------------------------------------------------------------------------- 
 // Vertex Struct: Holds the name of the vertex, any other vertexes, or canals it's 
