@@ -14,23 +14,23 @@
 //////////////////////////////////////////////////////////////////////////////////////// 
 
 //---------------------------------------------------------------------------------------- 
-	// filename(): This constructor initializes a Dijkstra object, setting all distances 
-	//		to a specified infinity value, marking all vertices as unvisited, and 
-	//		initializing the adjacency matrix with zeros to indicate no direct 
-	//		connections between vertices
+// Djikstra(): This constructor initializes a Dijkstra object, setting all distances 
+//		to a specified infinity value, marking all vertices as unvisited, and 
+//		initializing the adjacency matrix with zeros to indicate no direct 
+//		connections between vertices
 		
-	// Incoming Data: infinity- The value used to initialize distances for which no direct 
-	//				paths are known
+// Incoming Data: infinity- The value used to initialize distances for which no direct 
+//				paths are known
 		
-	// Outgoing Data: N/A
+// Outgoing Data: N/A
 		
-	// Author: Chhavi Chhavi
+// Author: Chhavi Chhavi
 		
-	// Tester: 
+// Tester: 
 		
-	// Notes: 
+// Notes: 
 		
-	//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 template <typename T>
 Dijkstra<T>::Dijkstra(T infinity) : INF(infinity) 
 {
