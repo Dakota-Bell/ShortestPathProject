@@ -12,8 +12,6 @@
 //				LINKEDQ PROTOTYPES AND VARIABLES
 
 //////////////////////////////////////////////////////////////////////////////////////// 
-
-
 #ifndef Q_H
 #define Q_H
 #include "VertexStruct.h"
@@ -54,8 +52,6 @@ public:
     T back(); 
     ~linkedQ(); 
     void copyQ(const linkedQ<T> & rhs);
-    
 };
-
 
 #endif // Q_H_INCLUDED
