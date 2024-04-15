@@ -100,8 +100,7 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 	k++;
 	cout << endl;
     }
-	 
-	matrixList.close();
+        matrixList.close();
 	infile.close(); // close the file since we're finished reading from it
 	cout << "leaving the readFromFile method!";
 }
