@@ -41,18 +41,23 @@ Dijkstra<T>::Dijkstra(T infinity) : INF(infinity)
 template <typename T>
 void Dijkstra<T>::run(int start, int n) 
 {
+    // Reinitialize distances and visited status for all vertices 
     for (int i = 0; i < n; i++) 
     {
         dist[i] = INF;
         visited[i] = false;
     }
 
+    // Distance to the source is always zero
     dist[start] = 0;
 
+    // Loop to visit each vertex
     for (int i = 0; i < n; ++i) 
     {
-        int u = -1;  // Vertex with the smallest known distance
+        // Vertex with the smallest distance not yet visited
+	int u = -1;  
 
+        // Find the unvisited vertex with the smallest distance
         for (int j = 0; j < n; ++j) 
         {
             if (!visited[j] && (u == -1 || dist[j] < dist[u])) 
@@ -61,13 +66,16 @@ void Dijkstra<T>::run(int start, int n)
             }
         }
 
+        // If the smallest distance is infinity, the remaining vertices are unreachable
         if (dist[u] == INF) 
         {
             break;
         }
 
+        // Mark the vertex as visited
         visited[u] = true;
 
+        // Update the distance to the neighboring vertices
         for (int v = 0; v < n; ++v) 
         {
             if (adjMatrix[u][v] != 0 && dist[u] + adjMatrix[u][v] < dist[v]) 
