@@ -8,8 +8,8 @@ void menu(string[], int);
 
 int main()
 {
-  int MAX = 9;
-	//Vertex myObj;
+	int MAX = 9;
+	
 	string locationArr[MAX] = {"Panama Canal", "Suez Canal", "Busan, South Korea", "Shanghai, China", "Singapore, Singapore", "Rotterdam, The Netherlands", "Japan", "New York, United States", "Immingham, United Kingdom"};
 	int start, end, vertices;
 	menu(locationArr, MAX);
@@ -19,7 +19,7 @@ int main()
 	cout << "Enter your ending port number: ";
 	cin >> end;
 
-  return 0;
+  	return 0;
 }
 
 
