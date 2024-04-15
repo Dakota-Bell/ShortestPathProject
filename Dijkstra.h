@@ -3,7 +3,7 @@
 // Course-Section: CS355-section 01
 // Assignment: project # 4
 // Date due: 04/15/2024
-// Description: The linkedQ prototypes and varialbes of a program intended to 
+// Description: The Dijkstra class prototypes and varialbes of a program intended to 
 //		calculate the shortest shipping path from beginning to end destination.
 // --------------------------------------------------------------------------- 
 
