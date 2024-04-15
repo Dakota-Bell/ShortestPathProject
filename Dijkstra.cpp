@@ -19,8 +19,9 @@ Dijkstra<T>::Dijkstra(T infinity) : INF(infinity)
 
 
 //---------------------------------------------------------------------------------------- 
-	// dijkstra(): Implements the Dijkstra's algorithm to find the shortest paths from a given source vertex
-    //             to all other vertices in a graph with non-negative weights.
+	// dijkstra(): Implements the Dijkstra's algorithm to find the shortest paths from 
+	//		a given source vertex	to all other vertices in a graph with 
+	//		non-negative weights.
 		
 	// Incoming Data: the starting location and number of vertices
 		
@@ -32,7 +33,7 @@ Dijkstra<T>::Dijkstra(T infinity) : INF(infinity)
 		
 	// Notes: 
 		
-	// --------------------------------------------------------------------------- 
+//---------------------------------------------------------------------------------------- 
 
 template <typename T>
 void Dijkstra<T>::run(int start, int n) 
