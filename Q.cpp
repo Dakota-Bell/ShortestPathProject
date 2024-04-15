@@ -59,48 +59,47 @@ bool linkedQ<T>::isEmpty()
 template <class T>
 void linkedQ<T>::readVertexesFromFile(T obj)
 {
-	cout << "Entering readVertexesFromFile()" << endl;
-	
-	ifstream infile("ShippingInfo.txt");
-	// check if the file even exists
-	if (infile.fail())
-	{
-		cout << "File not found" << endl;
-		exit(1); // Terminates the prblem
-		return;
-	}
+    cout << "Entering readVertexesFromFile()" << endl;
+    ifstream infile("ShippingInfo.txt");
+    // check if the file even exists
+    if (infile.fail())
+    {
+        cout << "File not found" << endl;
+	exit(1); // Terminates the prblem
+	return;
+    }
 
-	ifstream matrixList("matrix-list.txt");
-	// check if the file even exists
-	if (matrixList.fail())
-	{
-		cout << "File not found" << endl;
-		exit(1); // Terminates the prblem
-		return;
-	}
+    ifstream matrixList("matrix-list.txt");
+    // check if the file even exists
+    if (matrixList.fail())
+    {
+	cout << "File not found" << endl;
+	exit(1); // Terminates the prblem
+	return;
+    }
 	
-	// if the file exists, get the name of the vetrtex
-	int i = 0;
-	linkedQ<T>* temp[MAX_VAL];
-	while(infile) // while the file is open
-	{
-		getline(infile, obj.name); // read a line and store the name of the vertex at this point
-		cout << i + 1<< ". " << obj.name << endl;; // store that name at whatever index it needs
-//		temp->front[i] = obj; // place a vertex into the temp linkedQ
-//		addQ(temp->front[i]);
-		obj.link;
-		i++; 
-	}
+    // if the file exists, get the name of the vetrtex
+    int i = 0;
+    linkedQ<T>* temp[MAX_VAL];
+    while(infile) // while the file is open
+    {
+	getline(infile, obj.name); // read a line and store the name of the vertex at this point
+	cout << i + 1<< ". " << obj.name << endl;; // store that name at whatever index it needs
+//	temp->front[i] = obj; // place a vertex into the temp linkedQ
+//	addQ(temp->front[i]);
+	obj.link;
+	i++; 
+    }
 	
-	int k = 0; cout << endl;
-	while(matrixList)
-	{
-		getline(matrixList, obj.connection[k]); // read from the 
-		cout << obj.connection[k];
-		obj.link;
-		k++;
-		cout << endl;
-	}
+    int k = 0; cout << endl;
+    while(matrixList)
+    {
+	getline(matrixList, obj.connection[k]); // read from the 
+	cout << obj.connection[k];
+	obj.link;
+	k++;
+	cout << endl;
+    }
 	 
 	matrixList.close();
 	infile.close(); // close the file since we're finished reading from it
@@ -127,48 +126,48 @@ bool linkedQ<T>::isFull()
     return false;
 }
 //---------------------------------------------------------------------------------------- 
-	// initializeQ(): Calls the deleteQ() method.
+// initializeQ(): Calls the deleteQ() method.
 		
-	// Incoming Data: N/A
+// Incoming Data: N/A
 		
-	// Outgoing Data: N/A
+// Outgoing Data: N/A
 		
-	// Author: Kara Chobot
+// Author: Kara Chobot
 		
-	// Tester: 
+// Tester: 
 		
-	// Notes: 
+// Notes: 
 		
-	// --------------------------------------------------------------------------- 
+// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::initializeQ()
 {
     deleteQ();
 }
 //---------------------------------------------------------------------------------------- 
-	// deleteQ(): Deletes the queue one vertex at a time and dynamically deallocates
-	//		the vertices memory.
+// deleteQ(): Deletes the queue one vertex at a time and dynamically deallocates
+//		the vertices memory.
 		
-	// Incoming Data: N/A
+// Incoming Data: N/A
 		
-	// Outgoing Data: N/A
+// Outgoing Data: N/A
 		
-	// Author: Kara Chobot
+// Author: Kara Chobot
 		
-	// Tester: 
+// Tester: 
 		
-	// Notes: 
+// Notes: 
 		
-	// --------------------------------------------------------------------------- 
+// --------------------------------------------------------------------------- 
 template <typename T>
 void linkedQ<T>::deleteQ() 
 {
     Vertex<T> *temp;
     if(!isEmpty())
     {
-	    temp = frontQ;
-	    frontQ = frontQ -> link;
-	    delete temp;
+        temp = frontQ;
+        frontQ = frontQ -> link;
+	delete temp;
     }
 }
 //---------------------------------------------------------------------------------------- 
