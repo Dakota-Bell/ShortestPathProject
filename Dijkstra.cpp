@@ -1,4 +1,17 @@
+// --------------------------------------------------------------------------- 
+// Name: Kara Chobot, Dakota Bell, Chhavi Chhavi
+// Course-Section: CS355-section 01
+// Assignment: project # 4
+// Date due: 04/15/2024
+// Description: The Dijkstra class method definitions of a program intended to 
+//		calculate the shortest shipping path from beginning to end destination.
+// --------------------------------------------------------------------------- 
 #include "Dijkstra.h"
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+//				DIJKSTRA METHOD DEFINITIONS
+
+//////////////////////////////////////////////////////////////////////////////////////// 
 
 //---------------------------------------------------------------------------------------- 
 	// filename(): This constructor initializes a Dijkstra object, setting all distances 
