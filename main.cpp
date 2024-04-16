@@ -93,6 +93,8 @@ int main()
         //vertex.currentDist = INF; //initializes all distances to logical infinity //do this in the struct? or earlier in main??
        for(int j = vertex[0].eye; j < MAX; j++)  
         {
+        	if(j > MAX)
+        		j = 0;
             //cout<<"in for loop"<<endl;
             if(vertex[j].eye == end) // if you have reached the end
             {
@@ -104,7 +106,7 @@ int main()
                     cout<<locationArr[j] << endl;
                     Q.deQ(); // remove the vertex array from the queue
                 }
-            }
+            } 
             else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
             {
                 vertex[j].eye = j;
