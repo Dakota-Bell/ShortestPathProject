@@ -11,7 +11,7 @@
 #include <fstream>
 #include <cmath>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "VertexStruct.cpp"
+#include "VertexStruct.h"
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -64,6 +64,11 @@ int main()
          infile.close();
      }
 
+	for(int i = 0; i < MAX; i++)
+	{
+		vertex[i].name = locationArr[i];
+	}
+
 //testing output WORKS
     for(int i = 0; i < MAX; i++)
      {
@@ -101,16 +106,15 @@ int main()
                 	
                     vertex[j].currentDist = vertex[j].currentDist + 1;
                 	cout<<vertex[j].currentDist<<endl;
-                    cout<<locationArr[j] << endl;
+                    cout<<vertex[j].name << endl;
                     Q.deQ(); // remove the vertex array from the queue
                 }
-                break;
+                break; // break out of the loop, you no longer need to be here ya silly guy!
             } 
             else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
             {
-                vertex[j].eye = j;
-                vertex[j].whoChanged = vertex[j].eye;
-                vertex[j].eye = j;
+                vertex[j].eye = j; // change the eyeball to j because the adj matrix says you can
+                vertex[j].whoChanged = vertex[j].eye; // who changed me is set to j essentially
                 Q.enQ(vertex[j].eye);
                 visited[vertex[j].eye] = 1;
                 vertex[j].currentDist = vertex[j].currentDist + 1;
@@ -119,7 +123,7 @@ int main()
             {
                 cout<<"Vertex cannot be reached."<<endl;			
             }
-			if(j >= MAX)
+			if(j == MAX)
         		j = 0;
         }//end for loop
 
