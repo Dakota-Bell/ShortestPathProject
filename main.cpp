@@ -10,76 +10,77 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <iomanip>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "eyeball.h"
+#include "Eyeball.h"
 using namespace std;
-////////////////////////////////////////////////////////////////////////////////////////
 
-//					PROTOTYPE
-
-////////////////////////////////////////////////////////////////////////////////////////
 void menu(string[], int);
-//void run(adjMatrix[i][j], locationArr[MAX]);
-////////////////////////////////////////////////////////////////////////////////////////
-
-//					MAIN
 
 ////////////////////////////////////////////////////////////////////////////////////////
+//          MAIN FUNCTION
+////////////////////////////////////////////////////////////////////////////////////////
+
 const int MAX = 5;
 float INF = INFINITY;
 
-int main() 
+int main()
 {
-    //mao connects vertex num to vertex name for context
+    // Array that connects each vertex number to its corresponding name for better readability.
     string locationArr[MAX] = {"Suez Canal", "Busan, South Korea", "Shanghai, China", "Singapore, Singapore", "Rotterdam, The Netherlands"};
-    int adjMatrix[MAX][MAX], start, end;
-    string fileName = "No file chosen";
-    Eyeball vertex[MAX];// nextVertex;
+    int adjMatrix[MAX][MAX], start, end; // adjacency matrix for graph representation and start/end points 
+    string fileName = "No file chosen"; // to hold the filename from user input
+    Eyeball vertex[MAX]; // Array of Eyeball objects representing each vertex
 
-    int visited[MAX] = {0};
-    int holdStart; // temp value for use in a for loop later 
-    ArrayQ<int> Q;
-    //ArrayQ<int> waiting;
-    //Write routine so that diagonal is 0, all others -1, then add in 1 for adjacencies from the adjacency file.
+    int visited[MAX] = {0}; 
+    int holdStart; // temp value for use in a for loop later
+    ArrayQ<int> Q; 
 
-    //Reads in an adjacency matrix from file.
-    cout << "Enter file name: " << endl;
+    // Prompt user for the adjacency matrix file name and attempt to open it
+    cout << "Enter file name: ";
     cin >> fileName;
-    //cout << "Made it into loadAdj" <<endl;
-     ifstream infile(fileName);
-     if(infile.fail())
-     {
-         cout << "File not found" << endl;
-         exit(1);
-     }
+    
+    cout << endl;
+    
+    ifstream infile(fileName); // File stream for reading the adjacency matrix
+    if(infile.fail()) // Check if the file opening failed
+    {
+        cout << "File not found" << endl;
+        exit(1); // Exit if no file found
+    }
 
-     while(infile)
-     {
-         for(int i = 0; i < MAX; i++)
-         {
-             for(int j = 0; j < MAX; j++)
-             {
-                infile>>adjMatrix[i][j];
-             }
-         }
-         infile.close();
-     }
+    // Read the adjacency matrix from the file
+    while(infile)
+    {
+        for(int i = 0; i < MAX; i++)
+        {
+            for(int j = 0; j < MAX; j++)
+            {
+                infile >> adjMatrix[i][j];
+            }
+        }
+        infile.close(); // Close the file after reading
+    }
 
+    // Assign location names to vertices
 	for(int i = 0; i < MAX; i++)
 	{
 		vertex[i].name = locationArr[i];
 	}
 
-//testing output WORKS
+    // Output the adjacency matrix
     for(int i = 0; i < MAX; i++)
-     {
-         for(int j = 0; j < MAX; j++)
-         {
-             cout<< adjMatrix[i][j] << " ";
-         }
-         cout<<endl;
-     }
+    {
+        for(int j = 0; j < MAX; j++)
+        {
+            cout << setw(3) << adjMatrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    cout << endl;
 
+    // Display menu and get user input for starting and ending ports
     menu(locationArr, MAX);
 
     cout << "Enter your starting port number: ";
@@ -87,61 +88,59 @@ int main()
     cout << "Enter your ending port number: ";
     cin >> end;
 
-    vertex[0].eye = start - 1; //first Eyeball
-    end = end - 1; //Goal
-    vertex[0].currentDist = 0;
-    Q.enQ(vertex[0].eye); //adds to Q
-    //visited[vertex.eye] = 1;
-
-    //Greedy
-  //int j = 0;
-        //cout<<"in while loop"<<endl;
-        //vertex.currentDist = INF; //initializes all distances to logical infinity //do this in the struct? or earlier in main??
-        holdStart = start - 1;
-       for(int j = vertex[0].eye; j < MAX; j++)  
+    vertex[0].eye = start - 1;      // first Eyeball
+    end = end - 1;                  // Goal
+    vertex[0].currentDist = 0;      // Start with a distance of 0
+    Q.enQ(vertex[0].eye);           // Enqueue the starting vertex
+    
+    holdStart = start - 1;          // Hold the start position for looping
+    
+    // Main loop to traverse the graph
+    for(int j = vertex[0].eye; j < MAX; j++)  
+    {
+        if(vertex[j].eye == end)    // Check if the end vertex is reached
         {
-            //cout<<"in for loop"<<endl;
-            if(vertex[j].eye == end) // if you have reached the end
+            while(Q.isEmpty() == false) // Output the route information while there are vertices in the queue
             {
-                while(Q.isEmpty() == false) // while you have info to display, display it
-                {
-                	
-                    vertex[j].currentDist = vertex[j].currentDist + 1;
-                	cout<<vertex[j].currentDist<<endl;
-                    cout<<vertex[j].name << endl;
-                    Q.deQ(); // remove the vertex array from the queue
-                }
-                break; // break out of the loop, you no longer need to be here ya silly guy!
-            } 
-            else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
-            {
-                vertex[j].eye = j; // change the eyeball to j because the adj matrix says you can
-                vertex[j].whoChanged = vertex[j].eye; // who changed me is set to j essentially
-                Q.enQ(vertex[j].eye);
-                visited[vertex[j].eye] = 1;
                 vertex[j].currentDist = vertex[j].currentDist + 1;
-            }//end else-if statement
-            else
-            {
-                cout<<"Vertex cannot be reached."<<endl;			
+                
+                cout << vertex[j].currentDist << endl;
+                cout << vertex[j].name << endl;
+                
+                Q.deQ(); // Dequeue after processing
             }
-			if(j == MAX && holdStart != 0) /* before leaving the loop, you want to check and see if you started at zero,
-											  and if not: reset the value of j to. You also need to be at the max value
-											  otherwise, leave it be*/
-        		j = 0;
-        }//end for loop
+            
+            break; // Exit the loop once the destination is reached
+        } 
+        else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
+        {
+            vertex[j].eye = j; // Update the current vertex based on adjacency matrix
+            vertex[j].whoChanged = vertex[j].eye; // Track the vertex that caused the change
+            Q.enQ(vertex[j].eye); // Enqueue the new vertex
+            visited[vertex[j].eye] = 1; // Mark as visited
+            vertex[j].currentDist = vertex[j].currentDist + 1; // Increment the distance
+        }
+        else
+        {
+            cout << "Vertex cannot be reached." << endl; // Output if no path is found
+        }
+		
+		if(j == MAX && holdStart != 0) // Check if loop needs to be reset to start
+        {
+            j = 0; // Reset loop index to start
+        }		
+    }
 
-    return 0;
+    return 0; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
-
-//				FUNCTION DEFINITIONS
-
+//          FUNCTION DEFINITIONS
 ////////////////////////////////////////////////////////////////////////////////////////
+
 //----------------------------------------------------------------------------------------
-// Menu(): simpliy prints out the menu of optional ports to begin at and potential
-//	   ending ports
+// menu(): simply prints out the menu of optional ports to begin at and potential
+//         ending ports
 
 // Incoming Data: array of all locations, maximum number of locations
 
@@ -149,11 +148,11 @@ int main()
 
 // Author: Dakota Bell
 
-// Tester:
+// Tester: 
 
-// Notes:
+// Notes: 
 
-// ----------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 void menu(string locArr[], int MAX)
 {
     for(int i = 0; i < MAX; i++)
@@ -161,4 +160,4 @@ void menu(string locArr[], int MAX)
         cout << i + 1 << ". " << locArr[i] << endl;
     }
     cout << endl;
- }
+}
