@@ -11,7 +11,7 @@
 #include <fstream>
 #include <cmath>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "VertexStruct.cpp"
+#include "eyeball.h"
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -98,19 +98,21 @@ int main()
             {
                 while(Q.isEmpty() == false) // while you have info to display, display it
                 {
-                    cout<<vertex[j].eye<<endl;
+                	
+                    vertex[j].currentDist = vertex[j].currentDist + 1;
+                	cout<<vertex[j].currentDist<<endl;
                     cout<<locationArr[j] << endl;
                     Q.deQ(); // remove the vertex array from the queue
                 }
             }
             else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
             {
-                vertex[j].currentDist = vertex[j].currentDist + 1;
                 vertex[j].eye = j;
                 vertex[j].whoChanged = vertex[j].eye;
                 vertex[j].eye = j;
                 Q.enQ(vertex[j].eye);
                 visited[vertex[j].eye] = 1;
+                vertex[j].currentDist = vertex[j].currentDist + 1;
             }//end else-if statement
             else
             {
