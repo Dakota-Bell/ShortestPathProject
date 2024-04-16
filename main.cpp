@@ -11,7 +11,7 @@
 #include <fstream>
 #include <cmath>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "eyeball.h"
+#include "VertexStruct.cpp"
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -91,10 +91,8 @@ int main()
   //int j = 0;
         //cout<<"in while loop"<<endl;
         //vertex.currentDist = INF; //initializes all distances to logical infinity //do this in the struct? or earlier in main??
-       for(int j = vertex[0].eye; j < MAX; j++)  
+       for(int j = vertex[0].eye; j <= MAX; j++)  
         {
-        	if(j > MAX)
-        		j = 0;
             //cout<<"in for loop"<<endl;
             if(vertex[j].eye == end) // if you have reached the end
             {
@@ -106,6 +104,7 @@ int main()
                     cout<<locationArr[j] << endl;
                     Q.deQ(); // remove the vertex array from the queue
                 }
+                break;
             } 
             else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
             {
@@ -118,9 +117,10 @@ int main()
             }//end else-if statement
             else
             {
-                cout<<"Vertex cannot be reached."<<endl;
+                cout<<"Vertex cannot be reached."<<endl;			
             }
-
+			if(j >= MAX)
+        		j = 0;
         }//end for loop
 
     return 0;
