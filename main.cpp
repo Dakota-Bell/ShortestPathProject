@@ -11,7 +11,7 @@
 #include <fstream>
 #include <cmath>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "eyeball.h"
+#include "VertexStruct.cpp"
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////
 
