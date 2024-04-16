@@ -11,7 +11,7 @@
 #include <fstream>
 #include <cmath>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "VertexStruct.cpp"
+#include "eyeball.h"
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -28,13 +28,13 @@ void menu(string[], int);
 const int MAX = 5;
 float INF = INFINITY;
 
-int main()
+int main() 
 {
     //mao connects vertex num to vertex name for context
     string locationArr[MAX] = {"Suez Canal", "Busan, South Korea", "Shanghai, China", "Singapore, Singapore", "Rotterdam, The Netherlands"};
     int adjMatrix[MAX][MAX], start, end;
     string fileName = "No file chosen";
-    Eyeball vertex;// nextVertex;
+    Eyeball vertex[MAX];// nextVertex;
 
     int visited[MAX] = {0};
     ArrayQ<int> Q;
@@ -65,14 +65,14 @@ int main()
      }
 
 //testing output WORKS
-    /* for(int i = 0; i < MAX; i++)
+    for(int i = 0; i < MAX; i++)
      {
          for(int j = 0; j < MAX; j++)
          {
              cout<< adjMatrix[i][j] << " ";
          }
          cout<<endl;
-     }*/
+     }
 
     menu(locationArr, MAX);
 
@@ -81,10 +81,10 @@ int main()
     cout << "Enter your ending port number: ";
     cin >> end;
 
-    vertex.eye = start - 1; //first Eyeball
+    vertex[0].eye = start - 1; //first Eyeball
     end = end - 1; //Goal
-    Q.enQ(vertex.eye); //adds to Q
-    vertex.currentDist = 0;
+    vertex[0].currentDist = 0;
+    Q.enQ(vertex[0].eye); //adds to Q
     //visited[vertex.eye] = 1;
 
     //Greedy
@@ -94,23 +94,23 @@ int main()
        for(int j = 0; j < MAX; j++)
         {
             //cout<<"in for loop"<<endl;
-            if(vertex.eye == end)
+            if(vertex[j].eye == end) // if you have reached the end
             {
-                while(Q.isEmpty() == false)
+                while(Q.isEmpty() == false) // while you have info to display, display it
                 {
-                    cout<<vertex.eye<<endl;
-                    Q.deQ();
+                    cout<<vertex[j].eye<<endl;
+                    cout<<locationArr[j] << endl;
+                    Q.deQ(); // remove the vertex array from the queue
                 }
             }
-            else if (adjMatrix[vertex.eye][j] == 1 && visited[vertex.eye] == 0)
+            else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
             {
-                //cout<<"in if statement"<<endl;
-                vertex.whoChanged = vertex.eye;
-                vertex.eye = j;
-                Q.enQ(vertex.eye);
-                visited[vertex.eye] = 1;
-                //visited[vertex.eye];
-                vertex.currentDist = vertex.currentDist + 1;
+                vertex[j].eye = j;
+                vertex[j].whoChanged = vertex[j].eye;
+                vertex[j].eye = j;
+                Q.enQ(vertex[j].eye);
+                visited[vertex[j].eye] = 1;
+                vertex[j].currentDist = vertex[j].currentDist + 1;
             }//end else-if statement
             else
             {
@@ -118,9 +118,6 @@ int main()
             }
 
         }//end for loop
-        //cout<<"exit for loop"<<endl;
-    //end while loop
-    //cout<<"exit while loop"<<endl;
 
     return 0;
 }
