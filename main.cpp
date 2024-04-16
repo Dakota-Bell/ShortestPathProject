@@ -26,7 +26,7 @@ void menu(string[], int);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 const int MAX = 5;
-int INF = INFINITY;
+float INF = INFINITY;
 
 int main()
 {
@@ -36,7 +36,7 @@ int main()
     string fileName = "No file chosen";
     Eyeball vertex;// nextVertex;
 
-    bool visited[MAX] = {false};
+    int visited[MAX] = {0};
     ArrayQ<int> Q;
     //ArrayQ<int> waiting;
     //Write routine so that diagonal is 0, all others -1, then add in 1 for adjacencies from the adjacency file.
@@ -85,36 +85,42 @@ int main()
     end = end - 1; //Goal
     Q.enQ(vertex.eye); //adds to Q
     vertex.currentDist = 0;
-    visited[vertex.eye] = true;
+    //visited[vertex.eye] = 1;
 
     //Greedy
-    while (vertex.eye != end)
-    {
-
-   // for (int i = 0; i < MAX; i++)
-    //{
+  //int j = 0;
+        //cout<<"in while loop"<<endl;
         //vertex.currentDist = INF; //initializes all distances to logical infinity //do this in the struct? or earlier in main??
-        for(int j = 0; j < MAX; j++)
+       for(int j = 0; j < MAX; j++)
         {
-            if(adjMatrix[vertex.eye][j] == 1)
+            //cout<<"in for loop"<<endl;
+            if(vertex.eye == end)
             {
+                while(Q.isEmpty() == false)
+                {
+                    cout<<vertex.eye<<endl;
+                    Q.deQ();
+                }
+            }
+            else if (adjMatrix[vertex.eye][j] == 1 && visited[vertex.eye] == 0)
+            {
+                //cout<<"in if statement"<<endl;
                 vertex.whoChanged = vertex.eye;
                 vertex.eye = j;
                 Q.enQ(vertex.eye);
-                visited[vertex.eye] = true;
+                visited[vertex.eye] = 1;
+                //visited[vertex.eye];
                 vertex.currentDist = vertex.currentDist + 1;
+            }//end else-if statement
+            else
+            {
+                cout<<"Vertex cannot be reached."<<endl;
             }
-        }//end inner for loop
 
-   // }//end outer for loop
-    }//end while loop
-
-    while(!Q.isEmpty())
-    {
-        cout<<vertex.eye<<endl;
-        Q.deQ();
-    }
-    cout<<vertex.currentDist;
+        }//end for loop
+        //cout<<"exit for loop"<<endl;
+    //end while loop
+    //cout<<"exit while loop"<<endl;
 
     return 0;
 }
