@@ -11,7 +11,7 @@
 #include <fstream>
 #include <cmath>
 #include "Q.cpp" // includes everything from all other headers and classes
-#include "VertexStruct.h"
+#include "eyeball.h"
 using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -37,6 +37,7 @@ int main()
     Eyeball vertex[MAX];// nextVertex;
 
     int visited[MAX] = {0};
+    int holdStart; // temp value for use in a for loop later 
     ArrayQ<int> Q;
     //ArrayQ<int> waiting;
     //Write routine so that diagonal is 0, all others -1, then add in 1 for adjacencies from the adjacency file.
@@ -96,7 +97,8 @@ int main()
   //int j = 0;
         //cout<<"in while loop"<<endl;
         //vertex.currentDist = INF; //initializes all distances to logical infinity //do this in the struct? or earlier in main??
-       for(int j = vertex[0].eye; j <= MAX; j++)  
+        holdStart = start - 1;
+       for(int j = vertex[0].eye; j < MAX; j++)  
         {
             //cout<<"in for loop"<<endl;
             if(vertex[j].eye == end) // if you have reached the end
@@ -123,7 +125,9 @@ int main()
             {
                 cout<<"Vertex cannot be reached."<<endl;			
             }
-			if(j == MAX)
+			if(j == MAX && holdStart != 0) /* before leaving the loop, you want to check and see if you started at zero,
+											  and if not: reset the value of j to. You also need to be at the max value
+											  otherwise, leave it be*/
         		j = 0;
         }//end for loop
 
