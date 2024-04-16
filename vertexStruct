@@ -1,8 +1,9 @@
 struct Eyeball
 {
-   int eye;
-   int currentDist;
-   int whoChanged;
+   int eye = 0;
+   int currentDist = 0;
+   int whoChanged = 0;
+   string name = " ";
    //int waitingQ;
 };
 
