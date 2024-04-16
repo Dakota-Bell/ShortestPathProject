@@ -91,7 +91,7 @@ int main()
   //int j = 0;
         //cout<<"in while loop"<<endl;
         //vertex.currentDist = INF; //initializes all distances to logical infinity //do this in the struct? or earlier in main??
-       for(int j = 0; j < MAX; j++)
+       for(int j = vertex[0].eye; j < MAX; j++)  
         {
             //cout<<"in for loop"<<endl;
             if(vertex[j].eye == end) // if you have reached the end
@@ -105,12 +105,12 @@ int main()
             }
             else if (adjMatrix[vertex[j].eye][j] == 1 && visited[vertex[j].eye] == 0)
             {
+                vertex[j].currentDist = vertex[j].currentDist + 1;
                 vertex[j].eye = j;
                 vertex[j].whoChanged = vertex[j].eye;
                 vertex[j].eye = j;
                 Q.enQ(vertex[j].eye);
                 visited[vertex[j].eye] = 1;
-                vertex[j].currentDist = vertex[j].currentDist + 1;
             }//end else-if statement
             else
             {
@@ -144,9 +144,9 @@ int main()
 // ----------------------------------------------------------------------------------------
 void menu(string locArr[], int MAX)
 {
-    for(int i = 1; i < MAX; i++)
+    for(int i = 0; i < MAX; i++)
     {
-        cout << i << ". " << locArr[i] << endl;
+        cout << i + 1 << ". " << locArr[i] << endl;
     }
     cout << endl;
  }
