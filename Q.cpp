@@ -1,37 +1,93 @@
-// --------------------------------------------------------------------------- 
+// ---------------------------------------------------------------------------
 // Name: Kara Chobot, Dakota Bell, Chhavi Chhavi
 // Course-Section: CS355-section 01
 // Assignment: project # 4
 // Date due: 04/15/2024
-// Description: The LinkedQ class method definitions of a program intended to 
+// Description: The LinkedQ class method definitions of a program intended to
 //		calculate the shortest shipping path from beginning to end destination.
-// --------------------------------------------------------------------------- 
+// ---------------------------------------------------------------------------
 #include <iostream>
 #include <fstream>
 #include "Q.h"
 using namespace std;
-//////////////////////////////////////////////////////////////////////////////////////// 
+
+//       TAKE MUTHAFUCKIN TWO
+template <class T>
+ArrayQ<T>::ArrayQ()
+{
+    qFront = 0;
+    qRear = maxSize - 1;
+    size = 0;
+    arr = new T[maxSize]; //creates the array to hold the Q elements
+}
+
+template <class T>
+void ArrayQ<T>::enQ(const T& vertex)
+{
+    qRear = (qRear + 1) % maxSize; //use mod operator to advance qRear bc array is circular;
+    size++;
+    arr[qRear] = vertex;
+}
+
+template <class T>
+void ArrayQ<T>::deQ()
+{
+    if(!isEmpty())
+    {
+        size--;
+        qFront = (qFront + 1) % maxSize;
+    }
+    else
+    {
+       cout<<"Cannot remove from an empty Q"<<endl;
+    }
+}
+
+template <class T>
+bool ArrayQ<T>::isEmpty()
+{
+    return(size==0);
+}
+
+template <class T>
+ArrayQ<T>::~ArrayQ()
+{
+   delete [] arr;
+}
+
+/*template <class T>
+ArrayQ<T>&::operator=(const ArrayQ& rhs)
+{
+    if(this != &rhs)
+    {
+        //alg to copy right object
+    }
+    return *this;
+}*/
+
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 //				LINKEDQ METHOD DEFINITIONS
 
-//////////////////////////////////////////////////////////////////////////////////////// 
+////////////////////////////////////////////////////////////////////////////////////////
 
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // isEmpty(): returns true if the frontQ points to nullptr. False if there is
 //		a vertex/vertices  in the queue.
-	
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: True or False
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
+
+// Tester:
+
+// Notes:
+
 // -----------------------------------------------------------------------------------------------
-template <typename T>
+/*template <typename T>
 bool linkedQ<T>::isEmpty()
 {
     if (frontQ == nullptr);
@@ -40,23 +96,23 @@ bool linkedQ<T>::isEmpty()
     }
     return false;
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // readFromFile: Reads in the names of the vertexes from a file
 //				1. Read in from the file
 //				2. Store the name of the vertex
-		
+
 // Incoming Data: No parameters, but we have an input file names "ShippingInfo.txt"
-		
+
 // Outgoing Data: N/A
-	
+
 // Author: Dakota Bell
-		
+
 // Tester: Kara Chobot
-		
-// Notes: 
+
+// Notes:
 
 // -------------------------------------------------------------------------------------------
-template <class T>
+/*template <class T>
 void linkedQ<T>::readVertexesFromFile(T obj)
 {
     cout << "Entering readVertexesFromFile()" << endl;
@@ -77,7 +133,7 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 	exit(1); // Terminates the prblem
 	return;
     }
-	
+
     // if the file exists, get the name of the vetrtex
     int i = 0;
     linkedQ<T>* temp[MAX_VAL];
@@ -88,13 +144,13 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 	//temp->front[i] = obj; // place a vertex into the temp linkedQ
 	//addQ(temp->front[i]);
 	obj.link;
-	i++; 
+	i++;
     }
-	
+
     int k = 0; cout << endl;
     while(matrixList)
     {
-	getline(matrixList, obj.connection[k]); // read from the 
+	getline(matrixList, obj.connection[k]); // read from the
 	cout << obj.connection[k];
 	obj.link;
 	k++;
@@ -104,62 +160,62 @@ void linkedQ<T>::readVertexesFromFile(T obj)
 	infile.close(); // close the file since we're finished reading from it
 	cout << "leaving the readFromFile method!";
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // isFull(): Determines if the queue is full
-	
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: False
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
+
+// Tester:
+
 // Notes: Since the queue made of dynamic memory it will never be
 //		   full unless you run out of memory.
-		
-// --------------------------------------------------------------------------- 		
+
+// ---------------------------------------------------------------------------
 template <typename T>
 bool linkedQ<T>::isFull()
 {
     return false;
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // initializeQ(): Calls the deleteQ() method.
-		
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
-// --------------------------------------------------------------------------- 
+
+// Tester:
+
+// Notes:
+
+// ---------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::initializeQ()
 {
     deleteQ();
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // deleteQ(): Deletes the queue one vertex at a time and dynamically deallocates
 //		the vertices memory.
-		
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
-// --------------------------------------------------------------------------- 
+
+// Tester:
+
+// Notes:
+
+// ---------------------------------------------------------------------------
 template <typename T>
-void linkedQ<T>::deleteQ() 
+void linkedQ<T>::deleteQ()
 {
     Vertex<T> *temp;
     if(!isEmpty())
@@ -169,19 +225,19 @@ void linkedQ<T>::deleteQ()
 	delete temp;
     }
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // linkedQ(): Constructor. Initializes the frontQ and rearQ pointer to null.
-		
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
+
+// Tester:
+
+// Notes:
+
 // -----------------------------------------------------------------------------------------
 template <typename T>
 linkedQ<T>::linkedQ()
@@ -189,19 +245,19 @@ linkedQ<T>::linkedQ()
     frontQ = nullptr;
     rearQ = nullptr;
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // addQ(): Dynamically adds a new vertex and associated variables to the queue
-		
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
+
+// Tester:
+
+// Notes:
+
 // --------------------------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::addQ(const T*& element)
@@ -211,7 +267,7 @@ void linkedQ<T>::addQ(const T*& element)
 
     newVert = new Vertex<T>;
 
-    newVert -> name = element -> name;  
+    newVert -> name = element -> name;
     newVert -> weight = element -> weight;
     newVert -> connection = element -> connection;
 
@@ -228,91 +284,40 @@ void linkedQ<T>::addQ(const T*& element)
         rearQ = rearQ -> link;
     }
 }
-//---------------------------------------------------------------------------------------- 
-// front(): Prints the data of the vertex at the front of the queue.
-		
-// Incoming Data: N/A
-		
-// Outgoing Data: N/A
-		
-// Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
-// -----------------------------------------------------------------------------------------
-template <class T>
-T linkedQ<T>::front()
-{
-    if(frontQ != nullptr)
-    {
-        cout << frontQ -> weight << " " << frontQ -> name << " " << frontQ -> connections << endl; //info meaning weight, name, connections
-    }
-    else
-    {
-        cout << "No info available." << endl;
-    }
-}
-//---------------------------------------------------------------------------------------- 
-// back(): Prints the data of the vertex at the rear of the queue
-		
-// Incoming Data: N/A
-		
-// Outgoing Data: N/A
-		
-// Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
-// --------------------------------------------------------------------------------------
-template <typename T>
-T linkedQ<T>::back()
-{
-    if(rearQ != nullptr)
-    {
-        cout << rearQ -> weight << " " << rearQ -> name << " " << rearQ -> connections << endl;
-    }
-    else
-    {
-        cout << "rearQ info not found." << endl;
-    }
-}
-//---------------------------------------------------------------------------------------- 
+
+//----------------------------------------------------------------------------------------
 // ~linkedQ(): calls the deleteQ(); method to deallocate queue dynamic memory.
-		
+
 // Incoming Data: N/A
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
+
+// Tester:
+
+// Notes:
+
 // ---------------------------------------------------------------------------------------
 template <typename T>
 linkedQ<T>::~linkedQ()
 {
     deleteQ();
 }
-//---------------------------------------------------------------------------------------- 
-// operator=(const linkedQ<T>& rhs): Overloaded = operator because you need it to 
+//----------------------------------------------------------------------------------------
+// operator=(const linkedQ<T>& rhs): Overloaded = operator because you need it to
 //					dynamically allocate memory.
-		
+
 // Incoming Data: The right hand side of the = operator
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
+
+// Tester:
+
+// Notes:
+
 // -------------------------------------------------------------------------------------
 template <typename T>
 const linkedQ<T>& linkedQ<T>::operator = (const linkedQ<T>& rhs)
@@ -323,20 +328,20 @@ const linkedQ<T>& linkedQ<T>::operator = (const linkedQ<T>& rhs)
     }
     return *this;
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // linkedQ(const linkedQ<T>& rhs): A copy constructor that creates a new vertex by calling
 //					copyQ.
-		
+
 // Incoming Data: Rhight hand side vertex.
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
+
+// Tester:
+
+// Notes:
+
 // ---------------------------------------------------------------------------------------
 template <typename T>
 linkedQ<T>::linkedQ(const linkedQ<T>& rhs)
@@ -344,20 +349,20 @@ linkedQ<T>::linkedQ(const linkedQ<T>& rhs)
     frontQ = nullptr;
     copyQ(&rhs);
 }
-//---------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------
 // CopyQ(const linkedQ<T>& rhs): Does a deep copy of an existing pointer vertex
-		
+
 // Incoming Data: Right hand side vertex
-		
+
 // Outgoing Data: N/A
-		
+
 // Author: Kara Chobot
-		
-// Tester: 
-		
-// Notes: 
-		
-// -------------------------------------------------------------------------------------- 
+
+// Tester:
+
+// Notes:
+
+// --------------------------------------------------------------------------------------
 template <typename T>
 void linkedQ<T>::copyQ(const linkedQ<T>& rhs)
 {
@@ -405,4 +410,5 @@ void linkedQ<T>::copyQ(const linkedQ<T>& rhs)
             current = current ->link;
         }
     }
-}
+}*/
+
