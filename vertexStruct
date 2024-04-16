@@ -1,59 +1,16 @@
-// --------------------------------------------------------------------------- 
-// Name: Kara Chobot, Dakota Bell, Chhavi Chhavi
-// Course-Section: CS355-section 01
-// Assignment: project # 4
-// Date due: 04/15/2024
-// Description: The vertex struct portion of the program intended to calculate
-//		the shortest shipping path.
-// --------------------------------------------------------------------------- 
-#include <iostream>
-using namespace std;
-//////////////////////////////////////////////////////////////////////////////////////// 
+struct Eyeball
+{
+   int eye;
+   int currentDist;
+   int whoChanged;
+   //int waitingQ;
+};
 
-//					VERTEX STRUCT
-
-//////////////////////////////////////////////////////////////////////////////////////// 
-
-//---------------------------------------------------------------------------------------- 
-// Vertex Struct: Holds the name of the vertex, any other vertexes, or canals it's 
-// 		  connected to and their corresponding weight (must be in order to work)
-	
-// Incoming Data: N/A
-
-// Outgoing Data: N/A
-
-// Author: Dakota Bell
-
-// Tester: 
-
-// Notes: Kara Chobot: adjusted template syntax
-	
-// --------------------------------------------------------------------------- 
-
-template <class T> 
+/*template <class T>
 struct Vertex
 {
-    int userMax = 0;
-    string name; // hold name of the vertex, a name is always going to be a string.
-    T connection[25]; // hold up to 9 connecting vertexes
-    //T weights[9]; // hold up to 9 weights
-    T* link; // for the array-based linkedList queue, that Kara has begun implemementing
-public:
-    Vertex operator=(const Vertex<T>& rhs)
-    {
-        if(this != &rhs)
-	{
-            copyVertex(rhs);
-        }
-	    return this;
-	}
-		
-    Vertex copyVertex(const Vertex<T>& rhs)
-    {
-        name = rhs.name;
-	for(int i = 0; i < userMax; i++)
-	{
-	    connection[i] = rhs.connection[i];
-	}
-    }
-};
+	T name; // hold name of the vertex
+	T connection[9]; // hold up to 9 connecting vertexes
+	T weights[9]; // hold up to 9 weights
+	Vertex<T>* link;
+};*/
